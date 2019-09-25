@@ -1,0 +1,80 @@
+html, body {
+    width: 100%;
+    margin: auto
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    width: 5%;
+}
+
+p {
+    margin: 0;
+}
+
+.masse {
+    text-align: right;
+    font-size:1vw
+}
+
+.elem {
+    text-align: center;
+    font-size:2vw
+}
+
+.na {
+    text-align: left;
+    vertical-align: bottom;
+    font-size:1vw
+}
+
+.sad_green {
+    background-color: olivedrab;
+}
+
+.green {
+    background-color: green;
+}
+
+.purple {
+    background-color: purple;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.grey {
+    background-color: grey;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.happy_blue {
+    background-color: cyan;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.white {
+    background-color: aquamarine;
+}
+
+.red {
+    background-color: red;
+}
+
+.turquoise {
+    background-color: turquoise;
+}
