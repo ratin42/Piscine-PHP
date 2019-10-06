@@ -1,0 +1,208 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    background-color: #505050;
+}
+
+.grey_bar {
+    background-color:  #909090;
+    border: #909090;
+    box-shadow: 10px 10px 5px #050505;
+    border-radius: 10px;
+}
+
+.top_bar {
+    width: 80%;
+    height: auto;
+    margin: auto;
+    position: relative;
+    margin-top: 1%;
+    display: flex;
+}
+
+.left_bar {
+    width: 6%;
+    height: auto;
+    float: left;
+    margin-top: 2%;
+    margin-left: 12%;
+    padding: 1%;
+    padding-bottom: 2%;
+}
+
+.middle_bar {
+    width: 53%;
+    height: auto;
+    padding: 1%;
+    float: left;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.right_bar {
+    width: 6%;
+    height: 36%;
+    float: left;
+    margin-top: 2%;
+    margin-left: 2%;
+    padding: 1%;
+    padding-bottom: 2%;
+}
+
+.chat_box {
+    width: 23%;
+    margin-left: 9%;
+    margin-top: -5%;
+    padding-right: 5%;
+    padding-top: -5%;
+    height: auto;
+    display: inline-block;
+    background-color:  #88FF89;
+    border: #88FF89;
+    box-shadow: 10px 10px 5px #050505;
+    border-radius: 10px;
+}
+
+p {
+    margin: 0;
+    padding-left: 2%;
+    font-size: 0.8vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+form {
+    margin-right: -16%;
+}
+
+#underline {
+    text-shadow:6px 6px 5.5px red;
+}
+
+#formu {
+    width: 65%;
+    height: 10%;
+    display: inline-block;
+    padding-right: 28%;
+    margin-top: 1%;
+    margin-left: 2%;
+    margin-bottom: 14%;
+    font-size: 0.8vw;
+    width: 43%;
+}
+
+#repondre {
+    background-color: #F4F4F4;
+    border-color:#909090;
+    border: 1px solid;
+    border-style:none;
+    height: 10%;
+    width:20%;
+}
+
+#reponse {
+    font-style: italic;
+}
+
+#arrow, #main, #oeil, #outil, #chat, #book, #towel{
+    display: block;
+    width: 60%;
+    margin: auto;
+    margin-top: 10%;
+}
+
+#enter {
+    font-size: 1.8vw;
+    font-family: Georgia;
+}
+
+#brick {
+    display:block;
+    background: url("resources/brick.jpg");
+    background-repeat: repeat;
+    background-size: 23%;
+}
+
+#brick_block {
+    visibility: hidden;
+    display: block;
+    width: 30%;
+}
+
+#oeil {
+    border: 3px solid red;
+    border-radius: 5px;
+}
+
+#day_of {
+    display: inline-block;
+    width: 35%;
+    padding: 1%;
+}
+
+#loupe {
+    width: 24%;
+    position: absolute;
+    margin-left: 73%;
+    z-index: 1;
+}
+
+#top_link {
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    margin-left: 60%;
+    width: 3%;
+    z-index: 2;
+}
+
+#disney {
+    width: 76%;
+    margin: auto;
+    padding-bottom: 7%;
+}
+
+#ikea {
+    width: 9%;
+    height: 80px;
+    margin-right: 57%;
+    margin-top: -20%;
+    float: right;
+    position: relative;
+}
+
+#apple {
+    width: 20%;
+    height: 87px;
+    margin-right: 2%;
+    margin-top: -24%;
+    float: right;
+    position: relative;
+}
+
+#chateau{
+    width: 76%;
+    margin: auto;
+    margin-top: 95%;
+}
+
+#reload {
+    margin-top: 20%;
+    margin-left: 22%;
+    width: 60%;
+    position: relative;
+}
+
+#close {
+    margin-top: 190%;
+    margin-left: 22%;
+    width: 60%;
+    position: relative;
+}
+
+#cluster {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: block;
+}
