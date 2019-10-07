@@ -3,6 +3,11 @@ html, body {
     margin: auto
 }
 
+body {
+    background-image:url(http://hdwpro.com/wp-content/uploads/2018/03/Floral-Blur-Background.jpg);
+    background-size: cover;
+}
+
 table {
     width: 100%;
 }
