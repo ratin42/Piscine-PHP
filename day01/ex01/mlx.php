@@ -1,3 +1,5 @@
+#!/usr/bin/php
+
 <?php 
 $nbr = 1000;
 
