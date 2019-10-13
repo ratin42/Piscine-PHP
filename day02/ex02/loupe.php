@@ -17,6 +17,7 @@ echo "line = |" . $line . PHP_EOL;
 $array = [];
 preg_match_all('/<\s*a[^>]*>(.*?)<\s*\/\s*a>/', $page, $array);
 (?<=title=")(.*)(?=")
+(?<=is \>)(.*?)(?=\s*\<)
 print_r($array);
 
 echo "-----------------------------------" . PHP_EOL . PHP_EOL;
