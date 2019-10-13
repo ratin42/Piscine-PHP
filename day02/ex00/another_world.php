@@ -1,29 +1,8 @@
 #!/usr/bin/php
 <?php 
-function ft_split($str)
+if ($argc > 1)
 {
-	$array = mb_split("\t", $str);
-	foreach ($array as $string)
-	{
-		if ($string != "")
-			$result[] = $string;
-	}
-	return $result;
+	$string = preg_replace("/(^[\s]+)|([\s]+$)/", "", $argv[1]);
+	echo (preg_replace("/[\s]+/", " ", $string)."\n");
 }
-
-function print_sp_array($array)
-{
-	$i = 0;
-	foreach ($array as $string)
-	{
-		if ($i != 0)
-			echo " ";
-		echo $string;
-		$i++;
-	}
-	echo "" . PHP_EOL;
-}
-
-$array = ft_split($argv[1]);
-print_sp_array($array);
 ?>
