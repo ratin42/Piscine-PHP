@@ -16,6 +16,11 @@ foreach ($month_array as $m)
 {
 	if (strcmp($m, strtolower($array[2])) == 0)
 		break ;
+	if ($i == 12)
+	{
+		echo "Wrong Format" . PHP_EOL;
+		exit(1);
+	}
 	$i++;
 }
 $stamp = mktime($time[0], $time[1], $time[2], $i, $array[1], $array[3]);
