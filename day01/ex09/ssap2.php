@@ -17,24 +17,25 @@ function ft_split($str)
 	return $result;
 }
 
-function get_code($a)
+function cmp_sort($a, $b) 
 {
-	if ()
-}
-
-function cmp($a, $b)
-{
-	$code = get_code($a) - get_code(b);
-	if ($code == 0)
-		return (strcasecmp($a, $b));
-	return $code;
+	for ($i = 0; $i )
+	$pa = strpos("abcdefghijklmnopqrstuvwxyz0123456789!\"#$%&'()*+,-./:;<=>
+	?@[\]^_`{|}~", strtolower($a));
+	$pb = strpos("abcdefghijklmnopqrstuvwxyz0123456789!\"#$%&'()*+,-./:;<=>
+	?@[\]^_`{|}~", strtolower($b));
+	echo "pa = " . $a . " pb = " . $b . PHP_EOL;
+	if ($pa > $pb)
+		return 1;
+	else
+		return -1;
 }
 
 $array = [];
 for	($i = 1; $i < $argc; $i++)
 	$array = array_merge($array, ft_split($argv[$i]));
-group_array($array);
-
-print_r($array);
-#print_sp_array(($array));
+print_sp_array(($array));
+echo "sorting-----------------------------" . PHP_EOL . PHP_EOL;
+usort($array, "cmp_sort");
+print_sp_array(($array));
 ?>
