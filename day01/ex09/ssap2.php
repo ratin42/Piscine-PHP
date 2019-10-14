@@ -19,23 +19,27 @@ function ft_split($str)
 
 function cmp_sort($a, $b) 
 {
-	for ($i = 0; $i )
-	$pa = strpos("abcdefghijklmnopqrstuvwxyz0123456789!\"#$%&'()*+,-./:;<=>
-	?@[\]^_`{|}~", strtolower($a));
-	$pb = strpos("abcdefghijklmnopqrstuvwxyz0123456789!\"#$%&'()*+,-./:;<=>
-	?@[\]^_`{|}~", strtolower($b));
-	echo "pa = " . $a . " pb = " . $b . PHP_EOL;
+	$i = 0;
+	$s = "abcdefghijklmnopqrstuvwxyz0123456789!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+	while ($i < strlen($a) || $i < strlen($b))
+	{
+		$pa = strpos($s, strtolower($a[$i]));
+		$pb = strpos($s, strtolower($b[$i]));
+		if ($pa != $pb)
+			break ;
+		$i++;
+	}
+	if ($pa === $pb)
+		return 0;
 	if ($pa > $pb)
 		return 1;
 	else
 		return -1;
 }
-
 $array = [];
 for	($i = 1; $i < $argc; $i++)
-	$array = array_merge($array, ft_split($argv[$i]));
-print_sp_array(($array));
-echo "sorting-----------------------------" . PHP_EOL . PHP_EOL;
+	if ($argv[$i] != NULL)
+		$array = array_merge($array, ft_split($argv[$i]));
 usort($array, "cmp_sort");
-print_sp_array(($array));
+print_sp_array($array);
 ?>
