@@ -7,12 +7,8 @@ function check_pass($array, $login)
 		if ($session['login'] == $login)
 		{
 			if ($session['passwd'] != $_POST['oldpw'])
-			{
-				echo "origin pass = " . $session['passwd'] . "old = " . $_POST['oldpw'];
 				break ;
-
-			}
-			return true;
+			return $i;
 		}
 		$i++;
 	}
@@ -29,6 +25,7 @@ else
 {
 	if (file_exists("../private/passwd") == true)
 	{
+		$_POST['oldpw'] = hash('whirlpool', $_POST['oldpw']);
 		$pass_file = unserialize(file_get_contents("../private/passwd"));
 		$i = check_pass($pass_file, $_POST['login']);
 		$_POST['newpw'] = hash('whirlpool', $_POST['newpw']);

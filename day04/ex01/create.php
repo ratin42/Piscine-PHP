@@ -25,14 +25,14 @@ else
 			echo "ERROR\n";
 			exit(1);
 		}
-		array_push($pass_file, $_POST);
+		$pass_file[] = ['login' => $_POST['login'], 'passwd' => $_POST['passwd']];
 		$pass_file = serialize($pass_file);
 		file_put_contents("../private/passwd", $pass_file);
 	}
 	else
 	{
 		$pass_file = [];
-		array_push($pass_file, $_POST);
+		$pass_file[] = ['login' => $_POST['login'], 'passwd' => $_POST['passwd']];
 		if (file_exists("../private") == false)
 			mkdir("../private", 0755);
 		$pass_file = serialize($pass_file);
