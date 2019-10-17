@@ -13,41 +13,55 @@ function add_note($array, &$result)
 	}
 	if (array_key_exists($array[0], $result))
 	{
-		$result[$array[0]]['nbr'] += 1;
 		if ($array[1] == NULL)
 			$result[$array[0]]['note'] += 0;
 		else
+		{
+			$result[$array[0]]['nbr'] += 1;
 			$result[$array[0]]['note'] += intval($array[1]);
+		}
 	}
 	else
 	{
-		$result[$array[0]]['nbr'] = 1;
 		if ($array[1] == NULL)
 			$result[$array[0]]['note'] = 0;
 		else
+		{
+			$result[$array[0]]['nbr'] = 1;
 			$result[$array[0]]['note'] = intval($array[1]);
+		}
 	}
 }
 
 function get_all_mid($result)
 {
 	$median = 0;
+	$nombre = 0;
 	foreach ($result as $stud)
-		$median += $stud['note'] / $stud[nbr];
+	{
+		$median += $stud['note'];
+		$nombre += $stud['nbr'];
+	}
+	if ($nombre != 0)
+		$median /= $nombre;
 	return ($median);
 }
 
 function get_all_user($result)
 {
 	foreach ($result as $stud => $value)
-		echo $stud . ":" . $value['note'] / $value[nbr] . PHP_EOL;
+	{
+		if ($value['nbr'] != 0)
+			echo $stud . ":" . $value['note'] / $value['nbr'] . PHP_EOL;
+	}
 }
 
 function get_ecart($result)
 {
 	foreach ($result as $stud => $value)
 	{
-		$op = $value['note'] / $value['nbr'] - $value['moulinette'];
+		if ($value['nbr'] != 0)
+			$op = $value['note'] / $value['nbr'] - $value['moulinette'];
 		echo $stud . ":" . $op . PHP_EOL;
 	}
 }
@@ -66,6 +80,8 @@ function print_result($result, $arg)
 
 $result = [];
 $i = 0;
+if ($argc != 2)
+	exit(1);
 while ($line = fgets(STDIN))
 {
 	if ($i != 0)

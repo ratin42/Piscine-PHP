@@ -1,43 +1,37 @@
 #!/usr/bin/php
-<?php 
-
-$page = file_get_contents("page.html");
-echo "text = " .  $page . PHP_EOL;
-//$link = preg_split('@(?<=<a)@', $page);
-//$link = preg_split('/<\s*a[^>]*>(.*?)<\s*\/\s*a>/', $page, PREG_SPLIT_DELIM_CAPTURE);
-//print_r($link);
-$array = [];
-preg_match_all('/<\s*a[^>]*>(.*?)<\s*\/\s*a>/', $page, $array);
-//echo "array = |" . $array[0][0] . PHP_EOL;
-
-for ($i = 0; $i < count($array[0]); $i++)
+<?php
+function parse_links($s)
 {
-	echo "test" . $array[0][$i] . "|" . PHP_EOL;
-	$array[0][$i] = preg_replace_callback(
-		'/(?<=title=")(.*)(?=")/',
-		function($matches) {
-			echo "test |" . $matches[0] . "|" . PHP_EOL;
-			return strtoupper($matches[0]);
-		},
-		$array[0][i]
-	);
+    $result = array();
+    preg_match_all("/<a.*?<\/a>/s", $s, $a);
+	foreach ($a[0] as $el)
+	{
+        preg_match_all("/title=\"(.+?)\"|>(.+?)</s", $el, $text);
+		for ($i = 1; $i < count($text); $i++)
+		{
+            $text[$i] = array_filter($text[$i]);
+			if (!empty($text[$i]))
+			{
+                foreach ($text[$i] as $t)
+                    $result[] = $t;
+            }
+        }
+    }
+    if (!empty($result))
+        return $result;
 }
 
-print_r($array);
-//preg_replace('/(?<=title=")(.*)(?=")/', "tets", $array[0][0]);
-
-#(?<=title=")(.*)(?=")
-#(?<=is \>)(.*?)(?=\s*\<)
-
-echo "-----------------------------------" . PHP_EOL . PHP_EOL;
- 
-#foreach ($link as $string)
-#{
-#	$array = str_split($string);
-#	echo "string = *|" . $string . "|*" . PHP_EOL;
-#	foreach ($array as $char)
-#	{
-#	}
-#	array_push($result, $array);
-#}
+if ($argc != 2 || !file_exists($argv[1]))
+	return;
+$content = file_get_contents($argv[1]);
+if ($content === false)
+{
+	echo("file: \"$argv[1]\" " . "cannot be read\n");
+	return;
+}
+$results = parse_links($content);
+foreach ($results as $result)
+	$content = str_ireplace($result, strtoupper($result), $content);
+echo $content . "\n";
+​
 ?>
