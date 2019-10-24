@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			div {
+				border-radius: 50%;
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				text-align: center;
+				margin: 0 auto;
+			}
+		</style>
+		<script>
+			function updateSize(ballon) {
+					var width = ballon.offsetWidth;
+					var height = ballon.offsetHeight;
+					if (width >= 420) {
+						ballon.style.width = "200px";
+						ballon.style.height = "200px";
+					}
+					else {
+						ballon.style.width = width + 10 + 'px';
+						ballon.style.height = height + 10 + 'px';
+					}
+			}
+
+			function updateColor(ballon) {
+				var	color = ballon.style.backgroundColor;
+					switch (color) {
+						case 'red':
+							ballon.style.background = "green";
+							break;
+						case 'green':
+							ballon.style.background = "blue";
+							break;
+						case 'blue':
+							ballon.style.background = "red";
+							break;
+						default:
+							ballon.style.background = "green";
+					}
+			}
+
+			function updateSizeOut(ballon) {
+					var width = ballon.offsetWidth;
+					var height = ballon.offsetHeight;
+					if (width > 200) {
+						ballon.style.width = width - 5 + 'px';
+						ballon.style.height = height - 5 + 'px';
+					}
+			}
+
+			function updateColorOut(ballon) {
+				var	color = ballon.style.backgroundColor;
+					switch (color) {
+						case 'red':
+							ballon.style.background = "blue";
+							break;
+						case 'green':
+							ballon.style.background = "red";
+							break;
+						case 'blue':
+							ballon.style.background = "green";
+							break;
+						default:
+							ballon.style.background = "blue";
+					}
+			}
+
+			function ClickColorMod() {
+					const ballon = document.getElementById("balloon");
+					updateSize(ballon);
+					updateColor(ballon);
+			}
+			function MouseOutMod() {
+					const ballon = document.getElementById("balloon");
+					updateSizeOut(ballon);
+					updateColorOut(ballon);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="balloon" onclick='ClickColorMod()' onmouseout='MouseOutMod()'>
+
+		</div>
+	</body>
+</html>

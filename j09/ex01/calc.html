@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			setInterval(function(){ alert("Please, use me..."); }, 30000);
+			function getResult() {
+				var a_str = document.getElementById("first").value;
+				var b_str = document.getElementById("second").value;
+				var a = parseInt(a_str);
+				var b = parseInt(b_str);
+				var op = document.getElementById("op").value;
+				if (isNaN(b_str) || isNaN(a_str) || a < 0 || b < 0 || a_str.indexOf(".") != -1 || b_str.indexOf(".") != -1) {
+					window.alert("Error:(");
+					return;
+				}
+				switch (op) {
+					case '+':
+						result = a + b;
+						break;
+					case '-':
+						result = a - b;
+						break;
+					case '*':
+						result = a * b;
+						break;
+					case '/':
+						if (b == 0) {
+							console.log("It’s over 9000!");
+							window.alert("It’s over 9000!");
+							return;
+						}
+						result = a / b;
+						break;
+					case '%':
+						if (b == 0) {
+							console.log("It’s over 9000!");
+							window.alert("It’s over 9000!");
+							return;
+						}
+						result = a % b;
+						break;
+					default:
+						return;
+				}
+				console.log(result);
+				window.alert(result);
+			}
+		</script>
+	</head>
+	<body>
+		<form id="my_form" action="">
+			<input id="first" type="text" name="first">
+			<select name="op" id="op">
+				<option value="+">+</option>
+				<option value="-">-</option>
+				<option value="*">*</option>
+				<option value="/">/</option>
+				<option value="%">%</option>
+			</select>
+			<input id="second" type="text" name="second">
+			<input onclick="getResult()" type="submit" value="Try me!">
+		</form>
+	</body>
+</html>
